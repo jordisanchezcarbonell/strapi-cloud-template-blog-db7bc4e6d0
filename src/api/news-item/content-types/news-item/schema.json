@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "news_items",
+  "info": {
+    "singularName": "news-item",
+    "pluralName": "news-items",
+    "displayName": "News Item",
+    "description": "News sources processed by MenteVolatil Short Video Bot"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "url": { "type": "text", "required": true },
+    "source": { "type": "string", "required": true },
+    "snippet": { "type": "text" },
+    "sourcePublishedAt": { "type": "datetime" },
+    "hash": { "type": "string", "required": true, "unique": true },
+    "summary": { "type": "text", "required": true },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "official",
+        "rumor",
+        "training",
+        "injury",
+        "press",
+        "odds",
+        "promo",
+        "technical_analysis",
+        "other"
+      ],
+      "required": true,
+      "default": "other"
+    },
+    "importance": {
+      "type": "integer",
+      "required": true,
+      "min": 1,
+      "max": 5,
+      "default": 2
+    },
+    "rawPayload": { "type": "json" }
+  }
+}
